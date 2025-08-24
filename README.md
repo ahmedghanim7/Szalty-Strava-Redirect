@@ -1,0 +1,1 @@
+# Welcome to Szalty Strava Redirect Page 👋

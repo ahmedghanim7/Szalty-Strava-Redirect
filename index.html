@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Strava Redirect Test</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f9f9f9;
+    }
+    p {
+      font-size: 18px;
+      color: #333;
+    }
+  </style>
+  <script>
+    window.onload = function () {
+      const params = new URLSearchParams(window.location.search);
+      const code = params.get("code");
+      const scope = params.get("scope");
+      const error = params.get("error");
+
+      // Build deep link into your app
+      const deepLink = `szalty://strava/redirect?code=${encodeURIComponent(code)}&scope=${encodeURIComponent(scope)}&error=${encodeURIComponent(error)}`;
+
+      console.log({code,scope,error});
+      
+      // Redirect into your app
+      window.location.href = deepLink;
+    };
+  </script>
+</head>
+<body>
+  <p>Redirecting back to Szalty...</p>
+</body>
+</html>
